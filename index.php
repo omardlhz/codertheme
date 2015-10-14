@@ -19,8 +19,8 @@ if (have_posts()) :
 
 	<?php } ?>
 
-	<div><?php previous_posts_link('Older'); ?></div>
-	<div><?php next_posts_link('Newer'); ?></div>
+	<div><?php previous_posts_link('Newer'); ?></div>
+	<div><?php next_posts_link('Older'); ?></div>
 	<?php else :
 
 		echo '<p>No content found</p>';
