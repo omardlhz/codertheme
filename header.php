@@ -14,7 +14,7 @@
 <div id="header">
 	<div class="topWrapper">
 		<div class="profileContainer">
-		<img class="profilePicture" src="assets/temp.png" />
+		<a href="/"><img class="profilePicture" src="assets/temp.png" /></a>
 		</div>
 	</div>
 

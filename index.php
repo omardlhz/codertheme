@@ -11,16 +11,10 @@ if (have_posts()) :
 	<div class="dateWrapper"><a class ="theLink" href="<?php site_url() . the_time('Y/m/d');?>"><?php the_time('F j, Y'); ?></a></div>
 	</div>
 	</article>
-
-	<?php endwhile;
-	if ( get_next_posts_link() || previous_posts_link()) { ?>
-	 	
-	 	<hr>
-
-	<?php } ?>
-
-	<div><?php previous_posts_link('Newer'); ?></div>
-	<div><?php next_posts_link('Older'); ?></div>
+	<?php endwhile; ?>
+	<div style="text-align:center;">
+	<?php posts_nav_link( ' &#183; ', 'Previous Page', 'Next Page' ); ?>
+	</div>
 	<?php else :
 
 		echo '<p>No content found</p>';
