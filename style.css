@@ -36,15 +36,17 @@ a.shrinkController{ display: inline; }
 
 
 
-article.post{background-color: white; box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.21); margin-top: 20px; }
+article.post{background-color: white; box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.21); margin-top: 20px; margin-bottom: 20px;}
 a.postTitle{ margin-top: 50px; margin-right: 50px; margin-left: 50px; margin-bottom: 0px; display:inline-block; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 30px; text-decoration: none; -webkit-transition: all 0.7s ease; transition: all 0.7s ease; }
 a.postTitle:link{ color: black;}
 a.postTitle:hover{ color: #81B8F6; }
 a.postTitle:visited{ color: black; }
 a.postTitle:visited:hover{ color: #81B8F6; }
 .postTitle{ margin-bottom: 0px; display:inline-block; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 30px; line-height: 35px;}
-div.theText{ margin-right: 50px; margin-left: 50px; margin-top: 0px; margin-bottom: 0px; text-align: justify; line-height: 150%;}
+div.theText{ margin-right: 50px; margin-left: 50px; margin-top: 0px; margin-bottom: 0px; text-align: justify; line-height: 150%; overflow:auto;}
 div.readWrapper{ text-align: left; margin-bottom: 10px; display: inline-block; width:90px; }
 div.dateWrapper{text-align: right; margin-bottom: 10px; margin-left: 500px; display: inline-block;}
 a.theLink{ margin-bottom: 10px;}
+
+iframe{ display: block; width: 100%; height: 400px; margin: 0 auto; border: 0; margin-top: 10px; margin-bottom: 10px;}
 

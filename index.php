@@ -7,7 +7,7 @@ if (have_posts()) :
 	<h2><a class="postTitle" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<div class="theText">
 	<?php the_excerpt(); ?>
-	<div class="readWrapper"><a class="theLink" href="<?php the_permalink(); ?>">Read more...</a></div>
+	<div class="readWrapper"><a class="theLink" href="<?php the_permalink(); ?>">Read More...</a></div>
 	<div class="dateWrapper"><a class ="theLink" href="<?php site_url() . the_time('Y/m/d');?>"><?php the_time('F j, Y'); ?></a></div>
 	</div>
 	</article>

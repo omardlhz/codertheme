@@ -37,9 +37,10 @@
 
 <script>
 
-var page = window.location.pathname;
+var page = <?php echo json_encode(is_single()); ?>;
 
-if(page != '/'){
+
+if( page == true){
 
 	$('#header').animate({height:'400px'})
 	$('div.siteController').animate({'padding-top' : '20px'})
