@@ -19,22 +19,24 @@ if (have_posts()) :
 		$currentPage = $paged;
 		$maxPages = $wp_query->max_num_pages;
 
-		if ($currentPage < $maxPages and $maxPages != 1) :
+		if ($currentPage < $maxPages and $maxPages != 1) : ?>
 
-			echo "Control";
-		endif;
+			<div style=" width:30%; float:right; text-align: left; margin-right:10%;";><?php echo next_posts_link() ?></div>
 
-		if ($currentPage != 0):
+			
+		<?php endif;
 
-			echo "Control2";
-		endif;
+		if ($currentPage != 0): ?>
 
-	?>
+			<div style="width:30%; float:left; text-align: right; margin-left: 10%;"><?php echo previous_posts_link() ?></div>
+			<a style=" width:20%; margin:0 display: block; auto; text-align: center;">| <?php echo $currentPage ?> of <?php echo $maxPages ?> |</a>
 
+		<?php else: ?>
 
-	<div style="text-align:center;">
-	<?php posts_nav_link( ' &#183; ', 'Previous Page', 'Next Page' ); ?>
-	</div>
+			<a style=" width:20%; margin:0 auto; display: block; text-align: center;">| 1 of <?php echo $maxPages ?> |</a>
+
+		<?php endif; ?>
+
 	<?php else :
 
 		echo '<p>No content found</p>';
