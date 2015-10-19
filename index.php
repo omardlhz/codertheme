@@ -3,16 +3,7 @@
 
 if (have_posts()) :
 	while (have_posts()) : the_post(); ?>
-
-
-	<?php
-
-		$sourceUrl = parse_url($url);
-		$sourceUrl = $sourceUrl['host'];
-	?>
 	
-	<script> alert(<?php echo $sourceUrl ?>): </script>
-
 	<article class="post">
 	<h2><a class="postTitle" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<div class="theText">
@@ -22,6 +13,25 @@ if (have_posts()) :
 	</div>
 	</article>
 	<?php endwhile; ?>
+
+	<?php
+
+		$currentPage = $paged;
+		$maxPages = $wp_query->max_num_pages;
+
+		if ($currentPage < $maxPages and $maxPages != 1) :
+
+			echo "Control";
+		endif;
+
+		if ($currentPage != 0):
+
+			echo "Control2";
+		endif;
+
+	?>
+
+
 	<div style="text-align:center;">
 	<?php posts_nav_link( ' &#183; ', 'Previous Page', 'Next Page' ); ?>
 	</div>
