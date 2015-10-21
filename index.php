@@ -21,19 +21,19 @@ if (have_posts()) :
 
 		if ($currentPage < $maxPages and $maxPages != 1) : ?>
 
-			<div style=" width:30%; float:right; text-align: left; margin-right:10%;";><?php echo next_posts_link() ?></div>
+			<div style=" width: 321.6px; float:right; text-align: left;";><?php echo next_posts_link() ?></div>
 
 			
 		<?php endif;
 
 		if ($currentPage != 0): ?>
 
-			<div style="width:30%; float:left; text-align: right; margin-left: 10%;"><?php echo previous_posts_link() ?></div>
-			<a style=" width:20%; margin:0 display: block; auto; text-align: center;">| <?php echo $currentPage ?> of <?php echo $maxPages ?> |</a>
+			<div style="width: 321.6px; float:left; text-align: right;"><?php echo previous_posts_link() ?></div>
+			<a style=" width: 160.8px; margin:0 auto; display: block; text-align: center;">| <?php echo $currentPage ?> of <?php echo $maxPages ?> |</a>
 
 		<?php else: ?>
 
-			<a style=" width:20%; margin:0 auto; display: block; text-align: center;">| 1 of <?php echo $maxPages ?> |</a>
+			<a style=" width: 160.8px; margin:0 auto; display: block; text-align: center;">| 1 of <?php echo $maxPages ?> |</a>
 
 		<?php endif; ?>
 
