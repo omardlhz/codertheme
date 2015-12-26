@@ -134,6 +134,14 @@ iframe{ display: block; width: 100%; height: 400px; margin: 0 auto; border: 0; m
 	background: #1671b3;
 }
 
+.avatar img {
+
+  float: left;
+  width: 200px;
+  margin-left: -200px;
+
+}
+
 
 .footerBox{ text-align: center; margin: 20px;}
 p.copyRight{ color: #666666; margin-bottom: 5px; }
