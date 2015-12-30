@@ -173,6 +173,17 @@ function post_information_html( $post) {
 	<p>
 		<select style="width: 100%;" name="post_information_related_project" id="post_information_related_project">
 		<option <?php echo (post_information_get_meta( 'post_information_related_project' ) === 'None' ) ? 'selected' : '' ?>>None</option>
+		<?php
+			global $post;
+            $originalpost = $post;
+			$args = array( 'post_type' => 'project', 'posts_per_page' => 100000000000 );
+			$loop = new WP_Query( $args );
+			while ( $loop->have_posts() ) : $loop->the_post(); ?>
+			<option <?php echo (post_information_get_meta( 'post_information_related_project' ) === the_title() ) ? 'selected' : '' ?>><?php the_title(); ?></option>
+			<?php endwhile;
+			$wp_query = $original_query;
+   			$post = $originalpost;
+		?>
 		</select>
 	</p><?php
 }
