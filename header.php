@@ -12,13 +12,15 @@
 <?php wp_head(); ?>
 </head>
 <div id="header">
+	<?php if (!is_singular('project')) { ?>
 	<div class="topWrapper">
 		<div class="profileContainer">
 		<a href="/"><img class="profilePicture" src="assets/temp.png" /></a>
 		</div>
 	</div>
+	<?php }; ?>
 
-<p class="introMsg">Hello, I'm Omar De La Hoz</p>
+<p class="introMsg">Hello, Im Omar De La Hoz</p>
 <p class="subMsg"><?php bloginfo('description'); ?></p>
 
 <hr>
@@ -29,7 +31,7 @@
 <a class="bar" href="http://never.com">LinkedIn</a>
 </div>
 <hr>
-<div class="siteController">
+<div id="siteController" class="siteController">
 <button class="shrinkController">Shrink</button>
 <button class="expandController">Expand</button>
 </div>
@@ -37,14 +39,21 @@
 
 <script>
 
+
 var page = <?php echo json_encode(is_single()); ?>;
+var project = <?php echo json_encode(is_singular('project')); ?>;
 
 
-if( page == true){
+if( page == true && project == true){
+
+	document.getElementById('header').style.height = '210px';
+	document.getElementById('siteController').style.paddingTop = '20px';
+
+}
+else if( page == true){
 
 	$('#header').animate({height:'400px'})
 	$('div.siteController').animate({'padding-top' : '20px'})
-
 }
 
 $('.shrinkController').click(function(){
@@ -61,6 +70,19 @@ $('.shrinkController').click(function(){
 		$('div.siteController').animate({'padding-top' : '220px'})
 
 	}
+	else if($('#header').height() == 800){
+
+		$('#header').animate({height:'405px'})
+		$('div.siteController').animate({'padding-top' : '220px'})
+
+	}
+	else if($('#header').height() == 405){
+
+		$('#header').animate({height:'210px'})
+		$('div.siteController').animate({'padding-top' : '20px'})
+
+	}
+
 
 })
 
@@ -73,12 +95,20 @@ $('.expandController').click(function(){
 
 
 	}
-	else if ($('#header').height() != 1000){
+	else if ($('#header').height() == 400){
 
 		$('#header').animate({height:'600px'})
 		$('div.siteController').animate({'padding-top' : '220px'})
 
-	}	
+	}
+	else if ($('#header').height() == 210){
+		$('#header').animate({height:'405px'})
+		$('div.siteController').animate({'padding-top' : '220px'})
+	}
+	else if ($('#header').height() == 405){
+		$('#header').animate({height:'800px'})
+		$('div.siteController').animate({'padding-top' : '620px'})
+	}
 
 })
 

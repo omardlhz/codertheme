@@ -1,3 +1,4 @@
+<?php wp_footer(); ?>
 <hr style="width: 100%; margin-top: 20px; margin-bottom: 10px;" />
 <div class="footerBox">
 <p class="copyRight">Copyright Omar De La Hoz ©</p>
