@@ -143,61 +143,66 @@ add_action( 'save_post', 'project_information_save' );
 	Usage: project_information_get_meta( 'project_information_website_link' )
 */
 
-
-function post_information_get_meta( $value ) {
-	global $post;
-
-	$field = get_post_meta( $post->ID, $value, true );
-	if ( ! empty( $field ) ) {
-		return is_array( $field ) ? stripslashes_deep( $field ) : stripslashes( wp_kses_decode_entities( $field ) );
-	} else {
-		return false;
-	}
-}
-
-function post_information_add_meta_box() {
-	add_meta_box(
-		'post_information-post-information',
-		__( 'Post Information', 'post_information' ),
-		'post_information_html',
-		'post',
-		'side',
-		'default'
-	);
-}
-add_action( 'add_meta_boxes', 'post_information_add_meta_box' );
-
-function post_information_html( $post) {
-	wp_nonce_field( '_post_information_nonce', 'post_information_nonce' ); ?>
-	<p>Select if a post is related to a project.</p>
-	<p>
-		<select style="width: 100%;" name="post_information_related_project" id="post_information_related_project">
-		<option <?php echo (post_information_get_meta( 'post_information_related_project' ) === 'None' ) ? 'selected' : '' ?>>None</option>
+function custom_meta_box_markup($object){
+	wp_nonce_field(basename(__FILE__),"meta-box-nonce");
+	?>
+	<div>
 		<?php
 			global $post;
             $originalpost = $post;
-			$args = array( 'post_type' => 'project', 'posts_per_page' => 100000000000 );
-			$loop = new WP_Query( $args );
-			while ( $loop->have_posts() ) : $loop->the_post(); ?>
-			<option <?php echo (post_information_get_meta( 'post_information_related_project' ) === the_title() ) ? 'selected' : '' ?>><?php the_title(); ?></option>
-			<?php endwhile;
+			$titles = array("None");
+			$args = array( 'post_type' => 'project', 'nopaging'  => true);
+			$query = new WP_Query( $args );
+			while ( $query->have_posts() ) : $query->the_post();
+			$titulo = get_the_title();
+			array_push($titles, $titulo);
+			endwhile;
 			$wp_query = $original_query;
-   			$post = $originalpost;
-		?>
-		</select>
-	</p><?php
+   			$post = $originalpost; ?>
+   			<select name="meta-box-dropdown">
+   			<?php foreach($titles as $title){
+   				if($title == get_post_meta($object->ID, "meta-box-dropdown", true)){ ?>
+   					<option selected><?php echo $title; ?></option>
+   			<?php }
+   				else { ?>
+   					<option><?php echo $title; ?></option>
+   			<?php }
+   			} ?>
+   			</select>
+	</div>
+<?php
 }
 
-function post_information_save( $post_id ) {
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-	if ( ! isset( $_POST['post_information_nonce'] ) || ! wp_verify_nonce( $_POST['post_information_nonce'], '_post_information_nonce' ) ) return;
-	if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+function add_costum_meta_box(){
+	
+	add_meta_box("project-meta-box","Related Project","custom_meta_box_markup","post","side","high",null);
 
-	if ( isset( $_POST['post_information_related_project'] ) )
-		update_post_meta( $post_id, 'post_information_related_project', esc_attr( $_POST['post_information_related_project'] ) );
 }
-add_action( 'save_post', 'post_information_save' );
+add_action("add_meta_boxes","add_costum_meta_box");
 
-/*
-	Usage: post_information_get_meta( 'post_information_related_project' )
-*/
+function save_custom_meta_box($post_id, $post, $update){
+
+	if (!isset($_POST["meta-box-nonce"]) || !wp_verify_nonce($_POST["meta-box-nonce"], basename(__FILE__)))
+        return $post_id;
+
+    if(!current_user_can("edit_post", $post_id))
+        return $post_id;
+
+    if(defined("DOING_AUTOSAVE") && DOING_AUTOSAVE)
+        return $post_id;
+
+    $slug = "post";
+    if($slug != $post->post_type)
+        return $post_id;
+
+    $meta_box_dropdown_value = "";
+
+    if(isset($_POST["meta-box-dropdown"]))
+    {
+        $meta_box_dropdown_value = $_POST["meta-box-dropdown"];
+    }   
+    update_post_meta($post_id, "meta-box-dropdown", $meta_box_dropdown_value);
+}
+add_action("save_post", "save_custom_meta_box", 10, 3);
+
+
