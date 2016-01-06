@@ -43,13 +43,13 @@ a.shrinkController{ display: inline; }
 
 
 article.post{position:relative; background-color: white; box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.21); margin-top: 20px; margin-bottom: 20px;}
-a.postTitle{ margin-top: 50px; margin-right: 50px; margin-left: 50px; margin-bottom: 0px; display:inline-block; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 30px; text-decoration: none; -webkit-transition: all 0.7s ease; transition: all 0.7s ease; }
+a.postTitle{ margin-top: 30px; margin-right: 50px; margin-left: 50px; display:inline-block; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 30px; text-decoration: none; -webkit-transition: all 0.7s ease; transition: all 0.7s ease; margin-bottom: -20px;}
 a.postTitle:link{ color: black;}
 a.postTitle:hover{ color: #81B8F6; }
 a.postTitle:visited{ color: black; }
 a.postTitle:visited:hover{ color: #81B8F6; }
-.postTitle{ margin-bottom: 0px; display:inline-block; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 30px; line-height: 35px;}
-div.theText{ margin-right: 50px; margin-left: 50px; margin-top: 0px; font-family: 'Lato', sans-serif; margin-bottom: 0px; text-align: justify; line-height: 150%; overflow:auto;}
+.postTitle{ margin-bottom: 0px; display:inline-block; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 30px; padding-bottom: 0px;}
+div.theText{ margin-right: 50px; margin-left: 50px; margin-top: 0px; font-family: 'Roboto', sans-serif; margin-bottom: 0px; text-align: justify; overflow:auto;}
 div.readWrapper{ text-align: left; margin-bottom: 10px; display: inline-block; width:90px; }
 div.dateWrapper{text-align: right; margin-bottom: 10px; margin-left: 500px; display: inline-block;}
 a.theLink{ margin-bottom: 10px;}
@@ -143,33 +143,6 @@ img.attachment-large{
     height: 210px;
     -webkit-filter: brightness(0.50);
 }
-
-
-
-
-.coverImage:before{
-
-	content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0.3;
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: cover;
-    <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' ); ?>
-    background-image: url('<?php echo $image[0]; ?>');
-
-}
-
 
 .footerBox{ text-align: center; margin: 20px;}
 p.copyRight{ color: #666666; margin-bottom: 5px; }

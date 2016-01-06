@@ -5,7 +5,7 @@ if (have_posts()) :
 	while (have_posts()) : the_post(); ?>
 	
 	<article class="post">
-	<h2><a class="postTitle" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+	<a class="postTitle" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 	<div class="theText">
 	<?php the_excerpt(); ?>
 	<div class="readWrapper"><a class="theLink" href="<?php the_permalink(); ?>">Read More...</a></div>
