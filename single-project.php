@@ -14,9 +14,29 @@
 			<div class="theText">
 			<?php the_content(); ?>
 			</div>
-			<div style="border: 1px solid #979797; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;background-image: linear-gradient(-180deg, #FBFBFB 0%, #E4E3E3 100%); position: absolute; bottom: 0; height: 30px; width: 100%;">Parte de abajo.</div>
+			<div style="-moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;background-image: linear-gradient(-180deg, #FBFBFB 0%, #E4E3E3 100%); position: absolute; bottom: 0; height: 30px; width: 100%;">Parte de abajo.</div>
 			</article>
 		<?php endwhile;
 	endif;
 ?>
+<h2 style="text-align: center;">Related Posts</h2>
+<div id="postWrapper">
+	<div id="postColumns">
+		<?php
+		// Custom Wordpress query, filters posts that belong to project.
+		$pjtitle = get_the_title();
+		$args = array('posts_per_page' => -1, 'post_type' => 'post', 'meta_query'=>array(array('key' => 'meta-box-dropdown', 'value' => $pjtitle)));
+		$post_query = new WP_Query( $args );
+		?>
+		<?php if($post_query -> have_posts() ): ?>
+		<?php while( $post_query->have_posts() ) : $post_query->the_post(); ?>
+			<div class="postPin">
+			<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+			<p><?php the_excerpt(); ?></p>
+			<a class="date" href="<?php echo 'http://'. $_SERVER['HTTP_HOST']. "/" ?><?php echo the_time('Y/m/d');?>"><?php the_time('F j, Y'); ?></a>
+			</div>
+		<?php endwhile; ?>
+		<?php endif; ?>
+	</div>
+</div>
 <?php get_footer(); ?>
