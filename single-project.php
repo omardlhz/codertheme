@@ -32,6 +32,9 @@
 		<?php while( $post_query->have_posts() ) : $post_query->the_post(); ?>
 			<div class="postPin">
 			<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+			<?php if ( has_post_thumbnail() ) { ?>
+    			<img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>">
+			<?php } ?>
 			<p><?php the_excerpt(); ?></p>
 			<a class="date" href="<?php echo 'http://'. $_SERVER['HTTP_HOST']. "/" ?><?php echo the_time('Y/m/d');?>"><?php the_time('F j, Y'); ?></a>
 			</div>

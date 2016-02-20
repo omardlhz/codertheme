@@ -233,27 +233,33 @@ img.attachment-large{
 	text-decoration: none;
 	color: black;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 18px;
 }
+
+.postPin .title:hover{ color: #81B8F6; }
 
 
 .postPin img {
 	width: 100%;
 	border-bottom: 1px solid #ccc;
+	padding-top: 10px;
 	padding-bottom: 15px;
 	margin-bottom: 5px;
 }
 
 .postPin p{
 	width: 222px;
-	font-size: 15px;
+	font-size: 13px;
 	text-align: justify;
-	font-family: 'Roboto', sans-serif;
 }
 
 .postPin .date{
 	float: right;
-	font-size: 15px;
+	font-size: 13px;
+}
+
+#postColumns:hover .postPin:not(:hover){
+	opacity:  0.4;
 }
 
 
