@@ -14,7 +14,17 @@
 			<div class="theText">
 			<?php the_content(); ?>
 			</div>
-			<div style="-moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;background-image: linear-gradient(-180deg, #FBFBFB 0%, #E4E3E3 100%); position: absolute; bottom: 0; height: 30px; width: 100%;">Parte de abajo.</div>
+			<div style="border: 1px solid #a0a0a0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;background-image: linear-gradient(-180deg, #FBFBFB 0%, #E4E3E3 100%); position: absolute; bottom: 0; height: 30px; width: 100%;">
+				<?php
+				$gitLink = project_information_get_meta( 'project_information_github_link' );
+				$webLink = project_information_get_meta( 'project_information_website_link' );
+				if($gitLink){ ?>
+					<button class="websiteButton" onClick="window.location.href='<?php echo $gitLink ?>'"><i class="fa fa-github fa-lg"></i> GitHub</button>
+				<?php }
+				if($webLink){ ?>
+					<button class="websiteButton" onClick="window.location.href='<?php echo $webLink ?>'"><i class="fa fa-link fa-lg"></i> Website</button>
+				<?php } ?>
+			</div>
 			</article>
 		<?php endwhile;
 	endif;
