@@ -7,7 +7,7 @@
 <title><?php bloginfo('name'); ?></title>
 <meta charset="<?php bloginfo('charset'); ?>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-<link href='https://fonts.googleapis.com/css?family=Lato:700,400,300,100|Roboto:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lato:700,400,300,100|Roboto:300,500' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <?php wp_head(); ?>
