@@ -4,10 +4,14 @@
 <div id="container">
 
 <head>
+<style>
+.topWrapper{ width: 100%; height: 200px; background-image: url(<?php echo do_shortcode("[tom id='coverimage']") ?>); background-size: 100% 100%; position: relative; }
+
+</style>
 <title><?php bloginfo('name'); ?></title>
 <meta charset="<?php bloginfo('charset'); ?>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-<link href='https://fonts.googleapis.com/css?family=Lato:700,400,300,100|Roboto:300,500' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lato:700,400,300,100|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <?php wp_head(); ?>
@@ -16,20 +20,26 @@
 	<?php if (!is_singular('project')) { ?>
 	<div class="topWrapper">
 		<div class="profileContainer">
-		<a href="/"><img class="profilePicture" src="assets/temp.png" /></a>
+		<a href="/"><img class="profilePicture" src="<?php echo do_shortcode("[tom id='profile_picture']") ?>" /></a>
 		</div>
 	</div>
 	<?php }; ?>
 
-<p class="introMsg">Hello, Im Omar De La Hoz</p>
-<p class="subMsg"><?php bloginfo('description'); ?></p>
+<p class="introMsg"><?php echo do_shortcode("[tom id='site_title']") ?></p>
+<p class="subMsg"><?php echo do_shortcode("[tom id='website_slogan']") ?></p>
 
 <hr>
 <div class="linkWrapper">
-<a class="bar" href="http://never.com">About</a>
-<a class="bar" href="http://never.com">Github</a>
-<a class="bar" href="http://never.com">Resume</a>
-<a class="bar" href="http://never.com">LinkedIn</a>
+<a class="bar" href="">About</a>
+<?php if(do_shortcode("[tom id='github_link']")){ ?>
+<a class="bar" href="<?php echo do_shortcode("[tom id='github_link']") ?>">Github</a>
+<?php }; ?>
+<?php if(do_shortcode("[tom id='resume_file']")){ ?>
+	<a class="bar" href="<?php echo do_shortcode("[tom id='resume_file']") ?>">Resume</a>
+<?php }; ?>
+<?php if(do_shortcode("[tom id='linkedin_link']")){ ?>
+	<a class="bar" href="<?php echo do_shortcode("[tom id='linkedin_link']") ?>">LinkedIn</a>
+<?php }; ?>
 </div>
 <hr>
 <div id="siteController" class="siteController">
