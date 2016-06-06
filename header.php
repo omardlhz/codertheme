@@ -25,9 +25,30 @@
 	</div>
 	<?php }; ?>
 
-<p class="introMsg"><?php echo do_shortcode("[tom id='site_title']") ?></p>
-<p class="subMsg"><?php echo do_shortcode("[tom id='website_slogan']") ?></p>
+<p class="introMsg">
+	<?php if (get_theme_mod("header_title") == ""){
 
+		echo bloginfo('name');
+	}
+	else{
+
+		echo get_theme_mod("header_title");
+
+	}
+	?>
+</p>
+<p class="subMsg">
+	<?php if (get_theme_mod("header_caption") == ""){
+
+		echo bloginfo('description');
+	}
+	else{
+
+		echo get_theme_mod("header_caption");
+
+	}
+	?>
+</p>
 <hr>
 <div class="linkWrapper">
 <a class="bar" href="">About</a>
