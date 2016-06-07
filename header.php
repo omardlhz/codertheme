@@ -30,14 +30,14 @@
 </head>
 <div id="header">
 	<?php if (!is_singular('project')) { ?>
-	<div class="topWrapper">
+	<div id="cover_image" class="topWrapper">
 		<div class="profileContainer">
-		<a href="/"><img class="profilePicture" src="<?php echo get_theme_mod("profile_image"); ?>" /></a>
+		<a href="/"><img id="profile_image" class="profilePicture" src="<?php echo get_theme_mod("profile_image"); ?>" /></a>
 		</div>
 	</div>
 	<?php }; ?>
 
-<p class="introMsg">
+<p id="header_title" class="introMsg">
 	<?php if (get_theme_mod("header_title") == ""){
 
 		echo bloginfo('name');
@@ -49,7 +49,7 @@
 	}
 	?>
 </p>
-<p class="subMsg">
+<p id="header_caption" class="subMsg">
 	<?php if (get_theme_mod("header_caption") == ""){
 
 		echo bloginfo('description');

@@ -2,7 +2,7 @@
 /*
 Options for the Customizer of Coder Theme.
 Created by Omar De La Hoz (omar.dlhz@hotmail.com) on 06/06/16
-Available on Github at: https://github.com/omardlhz/Trackr
+Available on Github (https://github.com/omardlhz/codertheme/)
 */
 
 
@@ -81,6 +81,13 @@ function header_info($wp_customize){
 }
 
 add_action("customize_register","header_info");
+
+function codertheme_live_preview()
+{
+	wp_enqueue_script("codertheme_customizer", get_template_directory_uri() . "/coder-livepreview.js", array("jquery", "customize-preview"), '',  true);
+}
+
+add_action("customize_preview_init", "codertheme_live_preview");
 
 
 ?>
