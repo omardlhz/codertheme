@@ -5,7 +5,7 @@
 
 <head>
 <style>
-.topWrapper{ width: 100%; height: 200px; background-image: url(<?php echo do_shortcode("[tom id='coverimage']") ?>); background-size: 100% 100%; position: relative; }
+.topWrapper{ width: 100%; height: 200px; background-image: url(<?php echo get_theme_mod("cover_image"); ?>); background-size: 100% 100%; position: relative; }
 
 </style>
 <title>
@@ -32,7 +32,7 @@
 	<?php if (!is_singular('project')) { ?>
 	<div class="topWrapper">
 		<div class="profileContainer">
-		<a href="/"><img class="profilePicture" src="<?php echo do_shortcode("[tom id='profile_picture']") ?>" /></a>
+		<a href="/"><img class="profilePicture" src="<?php echo get_theme_mod("profile_image"); ?>" /></a>
 		</div>
 	</div>
 	<?php }; ?>

@@ -47,6 +47,37 @@ function header_info($wp_customize){
 		)
 	));
 
+	$wp_customize->add_setting("profile_image", array(
+		"default" => "",
+		"transport" => "postMessage",
+	));
+
+	$wp_customize->add_control(new WP_Customize_Image_Control(
+           $wp_customize,
+           "profile_image",
+           array(
+               "label"      => __( "Profile Image", 'customizer_header_title_label' ),
+               "description" => "Displayed above Header title. (Placeholder image will be used if left empty)",
+               "section"    => "info",
+               "settings"   => "profile_image",
+           )
+       ));
+
+	$wp_customize->add_setting("cover_image", array(
+		"default" => "",
+		"transport" => "postMessage",
+	));
+
+	$wp_customize->add_control(new WP_Customize_Image_Control(
+           $wp_customize,
+           "cover_image",
+           array(
+               "label"      => __( "Cover Image", 'customizer_header_title_label' ),
+               "description" => "Displayed behind profile image. (Recommended size 890x210)",
+               "section"    => "info",
+               "settings"   => "cover_image",
+           )
+       ));
 }
 
 add_action("customize_register","header_info");
