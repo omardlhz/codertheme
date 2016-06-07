@@ -8,7 +8,19 @@
 .topWrapper{ width: 100%; height: 200px; background-image: url(<?php echo do_shortcode("[tom id='coverimage']") ?>); background-size: 100% 100%; position: relative; }
 
 </style>
-<title><?php bloginfo('name'); ?></title>
+<title>
+	<?php
+	if(is_single()){
+		$title = wp_title('', FALSE);
+		$title .= " - ";
+		$title .=  get_bloginfo('name');
+		echo $title;
+	}
+	else{
+		bloginfo('name');
+	}
+	?>
+</title>
 <meta charset="<?php bloginfo('charset'); ?>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
 <link href='https://fonts.googleapis.com/css?family=Lato:700,400,300,100|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
