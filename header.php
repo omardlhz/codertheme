@@ -1,3 +1,6 @@
+/*
+Agregar comentario..
+*/
 <!DOCTYPE html>
 <html>
 
@@ -63,15 +66,26 @@
 </p>
 <hr>
 <div class="linkWrapper">
-<a class="bar" href="">About</a>
-<?php if(do_shortcode("[tom id='github_link']")){ ?>
-<a class="bar" href="<?php echo do_shortcode("[tom id='github_link']") ?>">Github</a>
+<?php if(get_theme_mod("about_link") != ""){ ?>
+<a class="bar" id="about_link" href="<?php echo get_theme_mod("about_link") ;?>">About</a>
 <?php }; ?>
-<?php if(do_shortcode("[tom id='resume_file']")){ ?>
-	<a class="bar" href="<?php echo do_shortcode("[tom id='resume_file']") ?>">Resume</a>
+<?php if(get_theme_mod("github_link") != ""){ ?>
+<a class="bar" id="github_link" href="<?php echo get_theme_mod("github_link") ;?>">Github</a>
 <?php }; ?>
-<?php if(do_shortcode("[tom id='linkedin_link']")){ ?>
-	<a class="bar" href="<?php echo do_shortcode("[tom id='linkedin_link']") ?>">LinkedIn</a>
+<?php if(get_theme_mod("resume_link") != ""){ ?>
+	<a class="bar" id="resume_link" href="<?php echo get_theme_mod("resume_link") ;?>">Resume</a>
+<?php }; ?>
+<?php if(get_theme_mod("linkedin_link") != ""){ ?>
+	<a class="bar" id="linkedin_link" href="<?php echo get_theme_mod("linkedin_link") ;?>">LinkedIn</a>
+<?php }; ?>
+<?php if(get_theme_mod("custom1_link") != "" && get_theme_mod("custom1name_link") != ""){ ?>
+	<a class="bar" id="custom1_link" href="<?php echo get_theme_mod("custom1_link") ;?>"><?php echo get_theme_mod("custom1name_link");?></a>
+<?php }; ?>
+<?php if(get_theme_mod("custom2_link") != "" && get_theme_mod("custom2name_link") != ""){ ?>
+	<a class="bar" id="custom2_link" href="<?php echo get_theme_mod("custom2_link") ;?>"><?php echo get_theme_mod("custom2name_link");?></a>
+<?php }; ?>
+<?php if(get_theme_mod("custom3_link") != "" && get_theme_mod("custom3name_link") != ""){ ?>
+	<a class="bar" id="custom3_link" href="<?php echo get_theme_mod("custom3_link") ;?>"><?php echo get_theme_mod("custom3name_link");?></a>
 <?php }; ?>
 </div>
 <hr>
