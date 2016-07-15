@@ -87,26 +87,18 @@
 </div>
 <hr>
 <div id="showCase">
-	<a href="#">
-	<div class="showItem">
-	<div class="text">Hablate</div>
-	<img src="https://www.cesarsway.com/sites/newcesarsway/files/styles/large_article_preview/public/Common-dog-behaviors-explained.jpg?itok=FSzwbBoi"/>
-	</div>
-	</a>
 
-	<a href="#">
-	<div class="showItem">
-	<div class="text">Que cole</div>
-	<img src="http://vignette1.wikia.nocookie.net/sanicsource/images/9/97/Doge.jpg/revision/latest?cb=20160112233015"/>
-	</div>
-	</a>
-
-	<a href="#">
-	<div class="showItem">
-	<div class="text">Como fue cole</div>
-	<img src="https://img.buzzfeed.com/buzzfeed-static/static/2014-03/enhanced/webdr06/31/11/enhanced-19051-1396279602-6.jpg"/>
-	</div>
-	</a>
+	<?php
+		$args = array( 'post_type' => 'project');
+		$loop = new WP_Query( $args );
+		while ( $loop->have_posts() ) : $loop->the_post(); ?>
+		<a href="<?php the_permalink(); ?>">
+		<div class="showItem">
+		<div class="text"><?php the_title();?></div>
+		<img src="<?php the_post_thumbnail_url(); ?>"/>
+		</div>
+		</a>
+	<?php endwhile; ?>
 
 </div>
 <div id="siteController" class="siteController">
@@ -124,7 +116,6 @@ var project = <?php echo json_encode(is_singular('project')); ?>;
 
 if( page == true && project == true){
 
-	//document.getElementById('header').style.height = '210px';
 	$('#showCase').animate({height:'0px'})
 
 }
