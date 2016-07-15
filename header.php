@@ -87,10 +87,27 @@
 </div>
 <hr>
 <div id="showCase">
-	<div class="showItem"></div>
-	<div class="showItem"></div>
-	<div class="showItem"></div>
-	<div class="showItem"></div>
+	<a href="#">
+	<div class="showItem">
+	<div class="text">Hablate</div>
+	<img src="https://www.cesarsway.com/sites/newcesarsway/files/styles/large_article_preview/public/Common-dog-behaviors-explained.jpg?itok=FSzwbBoi"/>
+	</div>
+	</a>
+
+	<a href="#">
+	<div class="showItem">
+	<div class="text">Que cole</div>
+	<img src="http://vignette1.wikia.nocookie.net/sanicsource/images/9/97/Doge.jpg/revision/latest?cb=20160112233015"/>
+	</div>
+	</a>
+
+	<a href="#">
+	<div class="showItem">
+	<div class="text">Como fue cole</div>
+	<img src="https://img.buzzfeed.com/buzzfeed-static/static/2014-03/enhanced/webdr06/31/11/enhanced-19051-1396279602-6.jpg"/>
+	</div>
+	</a>
+
 </div>
 <div id="siteController" class="siteController">
 <button class="shrinkController">Shrink</button>
@@ -142,7 +159,7 @@ $('.expandController').click(function(){
 
 		var items = $('#showCase').children().length;
 		var rows = Math.ceil(items / 3);
-		var height = rows * $('.showItem:visible').outerHeight();
+		var height = rows * 180;
 		$('#showCase').animate({height:height});
 
 	}
