@@ -1,6 +1,3 @@
-/*
-Agregar comentario..
-*/
 <!DOCTYPE html>
 <html>
 
@@ -89,6 +86,12 @@ Agregar comentario..
 <?php }; ?>
 </div>
 <hr>
+<div id="showCase">
+	<div class="showItem"></div>
+	<div class="showItem"></div>
+	<div class="showItem"></div>
+	<div class="showItem"></div>
+</div>
 <div id="siteController" class="siteController">
 <button class="shrinkController">Shrink</button>
 <button class="expandController">Expand</button>
@@ -104,68 +107,44 @@ var project = <?php echo json_encode(is_singular('project')); ?>;
 
 if( page == true && project == true){
 
-	document.getElementById('header').style.height = '210px';
-	document.getElementById('siteController').style.paddingTop = '20px';
+	//document.getElementById('header').style.height = '210px';
+	$('#showCase').animate({height:'0px'})
 
 }
 else if( page == true){
-
-	$('#header').animate({height:'400px'})
-	$('div.siteController').animate({'padding-top' : '20px'})
+	
+	$('#showCase').animate({height:'0px'})
 }
 
 $('.shrinkController').click(function(){
 
-	if ($('#header').height() == 600){
+	if ($('#showCase').height() == 180){
 
-		$('#header').animate({height:'400px'})
-		$('div.siteController').animate({'padding-top' : '20px'})
-
-	}
-	else if($('#header').height() == 1000){
-
-		$('#header').animate({height:'600px'})
-		$('div.siteController').animate({'padding-top' : '220px'})
+		$('#showCase').animate({height:'0px'})
 
 	}
-	else if($('#header').height() == 800){
+	else if($('#showCase').height() > 180){
 
-		$('#header').animate({height:'405px'})
-		$('div.siteController').animate({'padding-top' : '220px'})
-
-	}
-	else if($('#header').height() == 405){
-
-		$('#header').animate({height:'210px'})
-		$('div.siteController').animate({'padding-top' : '20px'})
+		$('#showCase').animate({height:'180px'})
 
 	}
-
 
 })
 
 $('.expandController').click(function(){
 
-	if ($('#header').height() == 600){
+	if ($('#showCase').height() == 0){
 
-		$('#header').animate({height:'1000px'})
-		$('div.siteController').animate({'padding-top' : '620px'})
-
+		$('#showCase').animate({height:'180px'})
 
 	}
-	else if ($('#header').height() == 400){
+	else if ($('#showCase').height() == 180){
 
-		$('#header').animate({height:'600px'})
-		$('div.siteController').animate({'padding-top' : '220px'})
+		var items = $('#showCase').children().length;
+		var rows = Math.ceil(items / 3);
+		var height = rows * $('.showItem:visible').outerHeight();
+		$('#showCase').animate({height:height});
 
-	}
-	else if ($('#header').height() == 210){
-		$('#header').animate({height:'405px'})
-		$('div.siteController').animate({'padding-top' : '220px'})
-	}
-	else if ($('#header').height() == 405){
-		$('#header').animate({height:'800px'})
-		$('div.siteController').animate({'padding-top' : '620px'})
 	}
 
 })
