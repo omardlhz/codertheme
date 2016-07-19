@@ -142,9 +142,27 @@ $('.shrinkController').click(function(){
 
 $('.expandController').click(function(){
 
+	var oneColumn = window.matchMedia("(max-width: 523px)");
+	var twoColumns = window.matchMedia("(max-width: 768px) and (min-width: 524px)");
+
 	if ($('#showCase').height() == 0){
 
 		$('#showCase').animate({height:'180px'})
+
+	}
+	else if($('#showCase').height() == 180 && oneColumn.matches){
+
+		var items = $('#showCase').children().length;
+		var height = items * 180;
+		$('#showCase').animate({height:height});
+
+	}
+	else if($('#showCase').height() == 180 && twoColumns.matches){
+
+		var items = $('#showCase').children().length;
+		var rows = Math.ceil(items / 2);
+		var height = rows * 180;
+		$('#showCase').animate({height:height});
 
 	}
 	else if ($('#showCase').height() == 180){
