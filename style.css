@@ -294,3 +294,11 @@ img.attachment-large{
 .footerBox{ text-align: center; margin: 20px;}
 p.copyRight{ color: #666666; margin-bottom: 5px; }
 p.footertext{ margin-top: 0px; color: #666666; font-size: 13px;}
+
+
+@media screen and (max-width: 768px) {
+
+	#container{width: 100%; margin: 0 auto;}
+	#postWrapper{width: 100%;}
+
+}

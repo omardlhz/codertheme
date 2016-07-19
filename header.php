@@ -4,6 +4,7 @@
 <div id="container">
 
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 .topWrapper{ width: 100%; height: 200px; background-image: url(<?php echo get_theme_mod("cover_image"); ?>); background-size: 100% 100%; position: relative; }
 
