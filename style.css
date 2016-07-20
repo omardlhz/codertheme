@@ -105,8 +105,8 @@ a.postTitle:visited{ color: black; }
 a.postTitle:visited:hover{ color: #81B8F6; }
 .postTitle{ margin-bottom: 0px; display:inline-block; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 30px; padding-bottom: 0px;}
 div.theText{ margin-right: 50px; margin-left: 50px; margin-top: 0px; font-family: 'Open Sans', sans-serif; font-weight: 400; margin-bottom: 0px; text-align: left; overflow:auto; line-height: 25px;}
-div.readWrapper{ text-align: left; margin-bottom: 10px; display: inline-block; width:90px; }
-div.dateWrapper{text-align: right; margin-bottom: 10px; margin-left: 500px; display: inline-block;}
+div.readWrapper{ text-align: left; width: 50%; float: left; margin-bottom: 10px;}
+div.dateWrapper{text-align: right; width: 50%; float: right; margin-bottom: 10px;}
 a.theLink{ margin-bottom: 10px;}
 
 
